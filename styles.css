@@ -270,14 +270,18 @@ footer {
 
 .message-content {
   display: flex;
+  gap: 30px;
   align-items: flex-start;
-  gap: 20px;
 }
 
 .ceo-photo {
-  width: 200px;
+  max-width: 300px;
   height: auto;
   border-radius: 10px;
+}
+
+.message-text {
+  flex: 1;
 }
 
 .message-text p {
@@ -334,6 +338,15 @@ footer {
 
   #about-us {
     margin-top: 20px;
+  }
+
+  .message-content {
+    flex-direction: column;
+  }
+
+  .ceo-photo {
+    max-width: 100%;
+    margin-bottom: 20px;
   }
 }
 
