@@ -138,7 +138,7 @@ main {
 }
 
 section {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   background-color: #ffffff;
   border: 1px solid var(--main-color-light);
   border-radius: 10px;
@@ -158,6 +158,10 @@ h2 {
   margin-bottom: 20px;
   border-bottom: 2px solid var(--main-color);
   padding-bottom: 10px;
+}
+
+#about-us {
+  margin-top: 30px; /* この行を追加 */
 }
 
 #about-us p {
@@ -216,14 +220,20 @@ footer {
 }
 
 .company-image-slider {
-  position: relative;
   width: 100%;
-  height: 700px; /* 画像の高さに応じて調整してください */
+  max-width: 1200px; /* コンテンツの最大幅に合わせて調整 */
+  margin: 0 auto;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.company-image-slider img {
+.slider-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9のアスペクト比を維持 (9 / 16 * 100) */
+}
+
+.slider-container img {
   position: absolute;
   top: 0;
   left: 0;
@@ -234,10 +244,9 @@ footer {
   transition: opacity 0.5s ease-in-out;
 }
 
-.company-image-slider img.active {
+.slider-container img.active {
   opacity: 1;
 }
-
 .company-image {
   text-align: center;
   margin-bottom: 20px;
@@ -317,6 +326,14 @@ footer {
 
   nav ul li a {
     font-size: 14px;
+  }
+
+  .company-image-slider {
+    margin-bottom: 20px;
+  }
+
+  #about-us {
+    margin-top: 20px;
   }
 }
 
