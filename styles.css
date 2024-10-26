@@ -22,8 +22,7 @@ body {
 
 header {
   background-color: #f4f4f4;
-  padding: 10px 20px;
-  height: 80px; /* ヘッダーの高さを固定。必要に応じて調整してください */
+  padding: 10px;
 }
 
 .header-content {
@@ -32,14 +31,16 @@ header {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  height: 100%;
   padding: 0 20px;
+  flex-wrap: wrap;
 }
 
 .logo {
-  height: 100%;
+  flex: 0 0 auto;
+  margin-right: 20px;
   display: flex;
   align-items: center;
+  height: 80px; /* ヘッダーの高さを固定 */
 }
 
 .logo a {
@@ -50,13 +51,54 @@ header {
 }
 
 .logo img {
-  max-height: 80%;
+  max-height: 100%;
   width: auto;
-  transition: opacity 0.3s ease;
+  object-fit: contain;
 }
 
 .logo a:hover img {
   opacity: 0.8;
+}
+
+nav {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--main-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+nav ul li a:hover {
+  color: var(--main-color-dark);
+}
+
+nav ul li a i {
+  margin-right: 5px;
 }
 
 h1 {
@@ -206,41 +248,6 @@ footer {
   height: auto;
 }
 
-nav {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-
-nav ul li {
-  margin-left: 30px;
-}
-
-nav ul li:first-child {
-  margin-left: 0;
-}
-
-nav ul li a {
-  /* ... 既存のスタイル ... */
-  color: #444;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: var(--main-color);
-}
-
-nav ul li a i {
-  margin-right: 5px;
-}
-
 .social-links {
   display: flex;
   align-items: center;
@@ -282,13 +289,13 @@ footer {
 
 @media (max-width: 768px) {
   .header-content {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
+    justify-content: center;
   }
 
   .logo {
+    margin-right: 0;
     margin-bottom: 10px;
+    height: 60px;
   }
 
   nav {
@@ -297,26 +304,38 @@ footer {
   }
 
   nav ul {
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 0 10px;
+  }
+
+  .logo img {
+    max-height: 40px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
     flex-direction: column;
     align-items: center;
   }
 
+  .logo {
+    height: 50px; /* さらに小さな画面用にヘッダーの高さを調整 */
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+  }
+
   nav ul li {
-    margin: 5px 0;
-  }
-  .social-links {
-    margin-top: 10px;
-  }
-
-  section {
-    padding: 20px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  #our-services ul {
-    grid-template-columns: 1fr;
+    margin: 5px 10px;
   }
 }
