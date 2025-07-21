@@ -6,6 +6,11 @@ export default defineConfig(({ command, mode }) => ({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   server: {
     port: 3000,
@@ -16,6 +21,6 @@ export default defineConfig(({ command, mode }) => ({
     open: true
   },
   publicDir: 'public',
-  base: mode === 'production' ? './' : '/',
+  base: mode === 'production' ? '/' : '/',
   root: '.'
 })) 
