@@ -8,8 +8,9 @@
     },
     "scripts": {
         "dev": "vite",
-        "build": "tsc && vite build",
+        "build": "NODE_ENV=production tsc && vite build",
         "preview": "vite preview",
+        "serve": "vite preview --port 4173",
         "deploy": "pnpm run build && gh-pages -d dist"
     },
     "dependencies": {
