@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import ssg from '@hono/vite-dev-server'
 
-export default defineConfig(({ command, mode }) => ({
-  plugins: [react()],
+export default defineConfig(() => ({
+  plugins: [react(), ssg()],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -12,15 +13,4 @@ export default defineConfig(({ command, mode }) => ({
       },
     },
   },
-  server: {
-    port: 3000,
-    open: true
-  },
-  preview: {
-    port: 4173,
-    open: true
-  },
-  publicDir: 'public',
-  base: mode === 'production' ? '/arailandscaping.com/' : '/',
-  root: '.'
-})) 
+}))
