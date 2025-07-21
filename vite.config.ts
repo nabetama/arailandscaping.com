@@ -21,6 +21,6 @@ export default defineConfig(({ command, mode }) => ({
     open: true
   },
   publicDir: 'public',
-  base: mode === 'production' ? '/' : '/',
+  base: mode === 'production' ? '/arailandscaping.com/' : '/',
   root: '.'
 })) 
