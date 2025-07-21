@@ -23,6 +23,7 @@
         "@hono/vite-dev-server": "^0.8.2",
         "@types/react": "^18.3.23",
         "@types/react-dom": "^18.3.7",
+        "@types/react-router-dom": "^5.3.3",
         "@vitejs/plugin-react": "^4.7.0",
         "autoprefixer": "^10.4.21",
         "gh-pages": "^6.3.0",

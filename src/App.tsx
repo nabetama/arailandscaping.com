@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Message from './pages/Message'
 import ScrollToTop from './components/ScrollToTop'
+import NotFound from './pages/NotFound';
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/message" element={<Message />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <ScrollToTop />
@@ -24,4 +26,4 @@ const App: React.FC = () => {
   )
 }
 
-export default App 
+export default App

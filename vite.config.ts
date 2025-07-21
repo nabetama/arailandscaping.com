@@ -1,9 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import ssg from '@hono/vite-dev-server'
 
 export default defineConfig(() => ({
-  plugins: [react(), ssg()],
+  plugins: [react()],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
