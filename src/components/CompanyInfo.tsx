@@ -5,7 +5,7 @@ const CompanyInfo: React.FC = () => {
     <section className="bg-white border-t border-gray-200 py-20 px-6 text-center">
       <div className="max-w-xl mx-auto px-4">
         <div className="text-2xl font-bold mb-8 tracking-wide text-main">
-          アライランドスケーピング株式会社
+          株式会社アライランドスケーピング
         </div>
         <div className="text-lg mb-4 text-gray-600 font-serif leading-relaxed">
           〒231-0836 神奈川県横浜市中区根岸町1-19
