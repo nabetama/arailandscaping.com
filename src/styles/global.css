@@ -107,6 +107,69 @@
     @apply leading-none text-white pointer-events-none;
   }
 
+  /* Blog content - microCMS rich editor */
+  .blog-content {
+    @apply text-text-sumi leading-relaxed;
+    line-height: 2;
+  }
+
+  .blog-content h2 {
+    @apply text-xl md:text-2xl font-bold text-main mt-12 mb-4 pb-2 border-b border-border-color;
+  }
+
+  .blog-content h3 {
+    @apply text-lg md:text-xl font-bold text-text-sumi mt-8 mb-3;
+  }
+
+  .blog-content p {
+    @apply mb-6;
+  }
+
+  .blog-content ul,
+  .blog-content ol {
+    @apply mb-6 pl-6;
+  }
+
+  .blog-content ul {
+    @apply list-disc;
+  }
+
+  .blog-content ol {
+    @apply list-decimal;
+  }
+
+  .blog-content li {
+    @apply mb-2;
+  }
+
+  .blog-content img {
+    @apply max-w-full h-auto rounded-work my-6;
+  }
+
+  .blog-content blockquote {
+    @apply border-l-4 border-accent pl-4 my-6 text-gray-600 italic;
+  }
+
+  .blog-content a {
+    @apply text-main underline;
+  }
+
+  .blog-content a:hover {
+    @apply text-accent;
+  }
+
+  .blog-content pre {
+    @apply bg-gray-100 rounded-lg p-4 my-6 overflow-x-auto text-sm;
+  }
+
+  .blog-content code {
+    @apply bg-gray-100 rounded px-1.5 py-0.5 text-sm;
+  }
+
+  .blog-content pre code {
+    @apply bg-transparent p-0;
+  }
+
   @media (max-width: 900px) {
     .works-list {
       @apply flex-col items-center;

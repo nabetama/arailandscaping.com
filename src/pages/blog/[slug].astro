@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getBlogs, getBlogDetail } from '../../lib/microcms';
+import type { Blog } from '../../lib/microcms';
+
+export async function getStaticPaths() {
+  const { contents } = await getBlogs();
+  return contents.map((blog) => ({
+    params: { slug: blog.id },
+  }));
+}
+
+const { slug } = Astro.params;
+const blog = await getBlogDetail(slug as string);
+const publishedDate = new Date(blog.publishedAt!).toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={`${blog.title} | ブログ | アライランドスケーピング`} description={blog.title}>
+  <article class="py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <a href="/blog" class="inline-flex items-center text-main text-sm mb-8 hover:underline">
+        ← ブログ一覧に戻る
+      </a>
+
+      <h1 class="text-2xl md:text-3xl font-bold text-text-sumi leading-snug mb-4">{blog.title}</h1>
+      <time class="text-sm text-gray-400 block mb-8" datetime={blog.publishedAt}>
+        {publishedDate}
+      </time>
+
+      {blog.eyecatch && (
+        <img
+          src={blog.eyecatch.url}
+          alt={blog.title}
+          class="w-full rounded-work mb-10 shadow-work"
+          width={blog.eyecatch.width}
+          height={blog.eyecatch.height}
+        />
+      )}
+
+      <div class="blog-content" set:html={blog.content} />
+    </div>
+  </article>
+</BaseLayout>

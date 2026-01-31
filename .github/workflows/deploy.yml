@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  repository_dispatch:
+    types: [microcms_update]
 
 permissions:
   contents: read
@@ -22,6 +24,9 @@ jobs:
         with:
           path: .
           node-version: 22
+        env:
+          MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
 
   deploy:
     needs: build

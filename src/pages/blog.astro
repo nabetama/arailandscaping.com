@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getBlogs } from '../lib/microcms';
+import type { Blog } from '../lib/microcms';
+
+let blogs: Blog[] = [];
+try {
+  const res = await getBlogs();
+  blogs = res.contents;
+} catch {
+  blogs = [];
+}
+---
+
+<BaseLayout title="ブログ | アライランドスケーピング" description="アライランドスケーピングのブログ。造園・外構工事の施工事例やお庭づくりのヒントをお届けします。">
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold text-center text-main mb-12 tracking-wide">ブログ</h1>
+
+      {blogs.length === 0 ? (
+        <p class="text-center text-gray-500 text-lg py-20">記事の準備中です。</p>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {blogs.map((blog) => (
+            <a href={`/blog/${blog.id}`} class="bg-white shadow-work rounded-work flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-work-hover no-underline text-inherit">
+              {blog.eyecatch ? (
+                <img
+                  src={blog.eyecatch.url}
+                  alt={blog.title}
+                  class="w-full h-52 object-cover"
+                  width={blog.eyecatch.width}
+                  height={blog.eyecatch.height}
+                />
+              ) : (
+                <div class="w-full h-52 bg-gray-200 flex items-center justify-center">
+                  <span class="text-gray-400 text-sm">No Image</span>
+                </div>
+              )}
+              <div class="p-6 flex flex-col gap-2">
+                <time class="text-sm text-gray-400" datetime={blog.publishedAt}>
+                  {new Date(blog.publishedAt!).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+                <h2 class="text-lg font-bold text-text-sumi leading-snug">{blog.title}</h2>
+                {blog.category && (
+                  <span class="inline-block text-xs text-main bg-main/10 px-2 py-0.5 rounded">{blog.category}</span>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
