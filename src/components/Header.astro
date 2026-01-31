@@ -1,0 +1,83 @@
+---
+---
+
+<header class="w-full bg-bg-black border-b border-border-color shadow-sm sticky top-0 z-40">
+  <div class="header-inner">
+    <div class="logo flex items-center h-20">
+      <a href="/">
+        <img
+          src="/images/hd_logo.svg"
+          alt="アライランドスケーピングロゴ"
+          width="388"
+          height="158"
+        />
+      </a>
+    </div>
+    <nav class="nav-menu-desktop">
+      <ul>
+        <li><a href="/">ホーム</a></li>
+        <li><a href="/message">代表挨拶</a></li>
+        <li>
+          <a href="https://www.instagram.com/arailandscaping" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <nav class="nav-menu-mobile">
+    <div class="mobile-menu-divider"></div>
+    <ul>
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/message">代表挨拶</a></li>
+      <li>
+        <a href="https://www.instagram.com/arailandscaping" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="menu-backdrop"></div>
+</header>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.nav-menu-mobile');
+  const backdrop = document.querySelector('.menu-backdrop');
+
+  function openMenu() {
+    mobileMenu?.classList.add('open');
+    hamburger?.classList.add('open');
+    hamburger?.setAttribute('aria-expanded', 'true');
+    hamburger?.setAttribute('aria-label', 'メニューを閉じる');
+    backdrop?.classList.add('active');
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.remove('open');
+    hamburger?.classList.remove('open');
+    hamburger?.setAttribute('aria-expanded', 'false');
+    hamburger?.setAttribute('aria-label', 'メニューを開く');
+    backdrop?.classList.remove('active');
+  }
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = hamburger.classList.contains('open');
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  backdrop?.addEventListener('click', closeMenu);
+
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>

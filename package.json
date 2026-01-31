@@ -1,36 +1,27 @@
 {
-    "name": "arailandscaping-website",
-    "version": "1.0.0",
-    "type": "module",
-    "engines": {
-        "node": ">=22.0.0",
-        "pnpm": ">=10.0.0"
-    },
-    "scripts": {
-        "dev": "vite",
-        "build": "NODE_ENV=production tsc && vite build",
-        "preview": "vite preview",
-        "serve": "vite preview --port 4173",
-        "deploy": "pnpm run build && gh-pages -d dist"
-    },
-    "dependencies": {
-        "hono": "^4.8.5",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "react-router-dom": "^6.30.1"
-    },
-    "devDependencies": {
-        "@hono/vite-dev-server": "^0.8.2",
-        "@types/react": "^18.3.23",
-        "@types/react-dom": "^18.3.7",
-        "@types/react-router-dom": "^5.3.3",
-        "@vitejs/plugin-react": "^4.7.0",
-        "autoprefixer": "^10.4.21",
-        "gh-pages": "^6.3.0",
-        "postcss": "^8.5.6",
-        "tailwindcss": "^3.4.17",
-        "typescript": "^5.8.3",
-        "vite": "^5.4.19"
-    },
-    "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad"
+	"name": "arailandscaping-website",
+	"version": "2.0.0",
+	"type": "module",
+	"engines": {
+		"node": ">=22.0.0",
+		"pnpm": ">=10.0.0"
+	},
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"lint": "biome check .",
+		"lint:fix": "biome check --fix .",
+		"format": "biome format --write ."
+	},
+	"dependencies": {
+		"@astrojs/tailwind": "^6.0.2",
+		"astro": "^5.7.10",
+		"tailwindcss": "^3.4.17"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.13",
+		"typescript": "^5.8.3"
+	},
+	"packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad"
 }
