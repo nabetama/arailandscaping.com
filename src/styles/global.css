@@ -31,28 +31,60 @@
     @apply max-h-15 w-auto block brightness-0 invert;
   }
 
-  .nav-menu ul {
+  /* Desktop nav */
+  .nav-menu-desktop ul {
     @apply flex gap-8 list-none m-0 p-0 bg-bg-black;
   }
 
-  .nav-menu li a {
+  .nav-menu-desktop li a {
     @apply text-text-hanshi no-underline font-semibold text-lg tracking-wide transition-colors duration-200 flex items-center;
   }
 
-  .nav-menu li a:hover {
+  .nav-menu-desktop li a:hover {
     @apply text-accent;
   }
 
-  .nav-menu li a i {
+  .nav-menu-desktop li a i {
     @apply mr-1.5;
   }
 
+  /* Mobile nav - hidden by default */
+  .nav-menu-mobile {
+    @apply hidden;
+  }
+
   .hamburger {
-    @apply hidden flex-col justify-center w-10 h-10 bg-transparent border-none cursor-pointer z-50;
+    @apply hidden flex-col justify-center items-center w-12 h-12 bg-transparent border-none cursor-pointer z-50 rounded-lg;
+  }
+
+  .hamburger:active {
+    @apply bg-white/10;
   }
 
   .hamburger span {
-    @apply block h-1 w-7 bg-white my-1.5 rounded transition-all duration-300;
+    @apply block h-0.5 w-6 bg-white rounded transition-all duration-300 ease-in-out;
+    margin: 3px 0;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .menu-backdrop {
+    @apply fixed inset-0 bg-black/0 z-30 pointer-events-none transition-all duration-300;
+  }
+
+  .menu-backdrop.active {
+    @apply bg-black/40 pointer-events-auto;
   }
 
   .main-visual {
@@ -85,24 +117,47 @@
   }
 
   @media (max-width: 640px) {
+    .nav-menu-desktop {
+      @apply hidden;
+    }
+
     .hamburger {
       @apply flex;
     }
 
-    .nav-menu ul {
-      @apply flex-col gap-0 bg-bg-black absolute top-15 right-0 w-45 shadow-lg rounded-b-lg overflow-hidden hidden z-40;
+    .nav-menu-mobile {
+      @apply block w-full bg-bg-black overflow-hidden relative z-40;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
     }
 
-    .nav-menu ul.open {
-      @apply flex;
+    .nav-menu-mobile.open {
+      max-height: 400px;
+      opacity: 1;
     }
 
-    .nav-menu li {
-      @apply border-b border-border-color py-3 pl-4;
+    .mobile-menu-divider {
+      @apply mx-6;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.15);
     }
 
-    .nav-menu li:last-child {
-      @apply border-b-0;
+    .nav-menu-mobile ul {
+      @apply list-none m-0 p-0 py-2;
+    }
+
+    .nav-menu-mobile li a {
+      @apply block text-gray-400 no-underline text-lg tracking-wide py-4 px-6 transition-colors duration-200;
+    }
+
+    .nav-menu-mobile li a:hover,
+    .nav-menu-mobile li a:active {
+      @apply text-white;
+    }
+
+    .nav-menu-mobile li a i {
+      @apply mr-1.5;
     }
 
     .scroll-to-top {
