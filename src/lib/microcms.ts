@@ -5,7 +5,7 @@ export type Blog = {
 	title: string;
 	content: string;
 	eyecatch?: MicroCMSImage;
-	category?: string;
+	category?: { id: string; name: string } & MicroCMSListContent;
 } & MicroCMSListContent;
 
 const client = createClient({

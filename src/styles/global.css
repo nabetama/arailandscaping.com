@@ -151,7 +151,7 @@
   }
 
   .blog-content a {
-    @apply text-main underline;
+    @apply text-main underline break-words;
   }
 
   .blog-content a:hover {
@@ -168,6 +168,28 @@
 
   .blog-content pre code {
     @apply bg-transparent p-0;
+  }
+
+  .blog-content table {
+    @apply w-full my-6 border-collapse text-sm;
+  }
+
+  .blog-content th,
+  .blog-content td {
+    @apply border border-border-color px-4 py-3 text-left align-middle leading-normal;
+  }
+
+  .blog-content th {
+    @apply bg-gray-100 font-bold;
+  }
+
+  .blog-content th p,
+  .blog-content td p {
+    @apply m-0;
+  }
+
+  .blog-content tr:nth-child(even) td {
+    @apply bg-gray-50;
   }
 
   @media (max-width: 900px) {

@@ -41,7 +41,9 @@ const publishedDate = new Date(blog.publishedAt!).toLocaleDateString('ja-JP', {
         />
       )}
 
-      <div class="blog-content" set:html={blog.content} />
+      <div class="blog-content">
+        <Fragment set:html={blog.content} />
+      </div>
     </div>
   </article>
 </BaseLayout>
