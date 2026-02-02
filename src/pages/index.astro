@@ -3,9 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import About from '../components/About.astro';
 import Works from '../components/Works.astro';
 import CompanyInfo from '../components/CompanyInfo.astro';
+import { COMPANY_NAME_SHORT } from '../consts';
 ---
 
-<BaseLayout title="横浜・神奈川の造園・外構工事 | 総合プランナー アライランドスケーピング">
+<BaseLayout title={`横浜・神奈川の造園・外構工事 | 総合プランナー ${COMPANY_NAME_SHORT}`}>
   <section class="main-visual">
     <img src="/images/top_slideImg01.png" alt="インパクトのある施工事例" />
   </section>

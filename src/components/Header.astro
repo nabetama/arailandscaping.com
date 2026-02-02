@@ -1,4 +1,5 @@
 ---
+import { NAV_HOME, NAV_MESSAGE, INSTAGRAM_URL } from '../consts';
 ---
 
 <header class="w-full bg-bg-black border-b border-border-color shadow-sm sticky top-0 z-40">
@@ -15,10 +16,10 @@
     </div>
     <nav class="nav-menu-desktop">
       <ul>
-        <li><a href="/">ホーム</a></li>
-        <li><a href="/message">代表挨拶</a></li>
+        <li><a href="/">{NAV_HOME}</a></li>
+        <li><a href="/message">{NAV_MESSAGE}</a></li>
         <li>
-          <a href="https://www.instagram.com/arailandscaping" target="_blank" rel="noopener noreferrer">
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
             <i class="fab fa-instagram"></i> Instagram
           </a>
         </li>
@@ -32,10 +33,10 @@
   <nav class="nav-menu-mobile">
     <div class="mobile-menu-divider"></div>
     <ul>
-      <li><a href="/">ホーム</a></li>
-      <li><a href="/message">代表挨拶</a></li>
+      <li><a href="/">{NAV_HOME}</a></li>
+      <li><a href="/message">{NAV_MESSAGE}</a></li>
       <li>
-        <a href="https://www.instagram.com/arailandscaping" target="_blank" rel="noopener noreferrer">
+        <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
           <i class="fab fa-instagram"></i> Instagram
         </a>
       </li>

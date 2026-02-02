@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import '../styles/global.css';
+import { DEFAULT_DESCRIPTION } from '../consts';
 
 interface Props {
   title: string;
@@ -11,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = '横浜・神奈川で造園・外構工事を手がける総合プランナー、アライランドスケーピング。庭園設計から施工まで、豊かな緑空間の創造をお手伝いします。'
+  description = DEFAULT_DESCRIPTION
 } = Astro.props;
 ---
 

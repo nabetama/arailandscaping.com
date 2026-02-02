@@ -1,26 +1,27 @@
 ---
+import { COMPANY_NAME, ADDRESS, PHONE, FAX, EMAIL, INSTAGRAM_URL } from '../consts';
 ---
 
 <section class="bg-white border-t border-gray-200 py-20 px-6 text-center">
   <div class="max-w-xl mx-auto px-4">
     <div class="text-2xl font-bold mb-8 tracking-wide text-main">
-      株式会社アライランドスケーピング
+      {COMPANY_NAME}
     </div>
     <div class="text-lg mb-4 text-gray-600 font-serif leading-relaxed">
-      〒231-0836 神奈川県横浜市中区根岸町1-19
+      {ADDRESS}
     </div>
     <div class="text-lg mb-4 text-gray-600 font-serif leading-relaxed">
-      TEL: 045-624-0047
+      TEL: {PHONE}
     </div>
     <div class="text-lg mb-4 text-gray-600 font-serif leading-relaxed">
-      FAX: 045-624-0984
+      FAX: {FAX}
     </div>
     <div class="text-lg mb-4 text-gray-600 font-serif leading-relaxed">
       E-Mail: <a
-        href="mailto:info@arailandscaping.com"
+        href={`mailto:${EMAIL}`}
         class="underline underline-offset-2 transition-colors duration-200 hover:text-accent"
       >
-        info@arailandscaping.com
+        {EMAIL}
       </a>
     </div>
     <div class="text-lg mb-4 text-gray-600 font-serif leading-relaxed">
@@ -31,7 +32,7 @@
     </div>
     <div class="mt-8">
       <a
-        href="https://www.instagram.com/arailandscaping"
+        href={INSTAGRAM_URL}
         target="_blank"
         rel="noopener noreferrer"
         class="text-gray-600 text-3xl transition-all duration-300 inline-block p-2 rounded-full hover:text-accent hover:scale-110"
